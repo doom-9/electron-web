@@ -4,7 +4,11 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-win": "electron-packager ./ 裁判监评系统 --platform=win32 --out=package",
+    "build-mac": "electron-packager ./ 裁判监评系统 --platform=darwin --out=package",
+    "build-builder": "electron-builder --win --ia32",
+    "build-builder-mac": "electron-builder --mac"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +21,45 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^21.1.0"
+    "electron": "^21.1.0",
+    "electron-packager": "^16.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "productName": "裁判监评系统",
+    "appId": "com.casair.monitor",
+    "asar": false,
+    "directories": {
+      "output": "build/electron-build"
+    },
+    "win": {
+      "icon": "img/favicon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "img/app.icns",
+      "entitlements": "build/entitlements.mac.plist",
+      "hardenedRuntime": true,
+      "extendInfo": {
+        "NSCameraUsageDescription": "CBA裁判监评系统请求访问您的摄像头，允许后，在您评判过程中会进行实时录制并上传"
+      }
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    }
   }
 }
