@@ -15,7 +15,7 @@ function createWindow() {
 
   mainWindow.maximize();
   // and load the index.html of the app.
-  mainWindow.loadURL("https://cbamonitor.reee.cn/monitor-elec");
+  mainWindow.loadURL("https://cbamonitor.reee.cn/monitor-elec/");
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
