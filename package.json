@@ -30,7 +30,7 @@
     "appId": "com.casair.monitor",
     "asar": false,
     "directories": {
-      "output": "build/electron-build"
+      "output": "build"
     },
     "win": {
       "icon": "img/favicon.ico"
